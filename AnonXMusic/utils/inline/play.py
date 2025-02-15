@@ -32,26 +32,29 @@ def stream_markup_timer(_, chat_id, played, dur):
     duration_sec = time_to_seconds(dur)
     percentage = (played_sec / duration_sec) * 100
     umm = math.floor(percentage)
+    
     if 0 < umm <= 10:
-        bar = "◉—————————"
-    elif 10 < umm < 20:
-        bar = "—◉————————"
-    elif 20 <= umm < 30:
-        bar = "——◉———————"
-    elif 30 <= umm < 40:
-        bar = "———◉——————"
-    elif 40 <= umm < 50:
-        bar = "————◉—————"
-    elif 50 <= umm < 60:
-        bar = "—————◉————"
-    elif 60 <= umm < 70:
-        bar = "——————◉———"
-    elif 70 <= umm < 80:
-        bar = "———————◉——"
-    elif 80 <= umm < 95:
-        bar = "————————◉—"
+        bar = "⚪─────────"
+    elif 10 < umm <= 20:
+        bar = "━⚪────────"
+    elif 20 < umm <= 30:
+        bar = "━━⚪───────"
+    elif 30 < umm <= 40:
+        bar = "━━━⚪──────"
+    elif 40 < umm <= 50:
+        bar = "━━━━⚪─────"
+    elif 50 < umm <= 60:
+        bar = "━━━━━⚪────"
+    elif 60 < umm <= 70:
+        bar = "━━━━━━⚪───"
+    elif 70 < umm <= 80:
+        bar = "━━━━━━━⚪──"
+    elif 80 < umm <= 90:
+        bar = "━━━━━━━━⚪─"
+    elif 90 < umm <= 100:
+        bar = "━━━━━━━━━⚪"
     else:
-        bar = "—————————◉"
+        bar = "───────────"
     buttons = [
         [
             InlineKeyboardButton(
@@ -60,30 +63,20 @@ def stream_markup_timer(_, chat_id, played, dur):
             )
         ],
         [
-            InlineKeyboardButton(
-                text="𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢", url=f"https://t.me/Sanatan_ke_hindu"
-            ),
-            InlineKeyboardButton(
-                text="𝖲𝗎𝗉𝗉𝗈𝗋𝗍 💬", url=f"https://t.me/DIL_SE_SANATANI"
-          ),
-        ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
-    ]
+            InlineKeyboardButton(text="❚❚", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+            InlineKeyboardButton(text="ᐅ", callback_data=f"ADMIN Resume|{chat_id}")],
+   ]
     return buttons
 
 
 def stream_markup(_, chat_id):
     buttons = [
         [
-            InlineKeyboardButton(
-                text="𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢", url=f"https://t.me/Sanatan_ke_hindu"
-            ),
-            InlineKeyboardButton(
-                text="𝖲𝗎𝗉𝗉𝗈𝗋𝗍 💬", url=f"https://t.me/DIL_SE_SANATANI"
-          ),
-        ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
-    ]
+            InlineKeyboardButton(text="❚❚", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+            InlineKeyboardButton(text="ᐅ", callback_data=f"ADMIN Resume|{chat_id}")],
+   ]
     return buttons
 
 
